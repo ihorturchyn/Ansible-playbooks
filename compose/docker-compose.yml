@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+    db2:
+        image: mysql
+        restart: always
+        ports:
+            - 3316:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_USER: igor
+            MYSQL_PASSWORD: Password
+            network_mode: "host"

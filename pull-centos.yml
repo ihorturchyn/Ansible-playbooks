@@ -1,0 +1,25 @@
+-   name: Pull centos image
+    hosts: localhost
+    tasks: 
+        -   name: 
+            docker_image:
+                name: nginx
+
+-   name: Create container
+    hosts: localhost
+    tasks: 
+        -   name:
+            docker_container:
+                name: nginx
+                image: nginx
+                state: started
+                ports:
+                    - "80:80"
+                tty: true
+                detach: true
+
+-   name: Create container in compose
+    hosts: localhost
+    tasks:
+        -   docker_compose:
+                project_src: compose
